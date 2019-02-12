@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Uni-life"
-run/main_scene="res://scenes/startmenu.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # Number of buttons in the menu.
-const NUM_OF_BTN = 4
+const NUM_OF_BTN = 3
 # Scene opened from StartButton.
 const NEXT_SCENE = "res://scenes/testworld.tscn"
 # Text displayed when "Instructions"-button is pressed.
@@ -41,11 +41,7 @@ func changeFocus(direction):
 	elif index == 1:
 		$HelpButton.grab_focus()
 	elif index == 2:
-		$ScoreButton.grab_focus()
-	elif index == 3:
 		$QuitButton.grab_focus()
-	elif index == 4:
-		$BackButton.grab_focus()
 	
 
 # Handler for StartButton. Switch to game scene.
