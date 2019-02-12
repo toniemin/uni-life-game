@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Arkansas_Traveler.ogg-229f9eba43d0a190c1c005f3a52048d6.oggstr"
+
+[deps]
+
+source_file="res://Sounds and music/Arkansas_Traveler.ogg"
+dest_files=[ "res://.import/Arkansas_Traveler.ogg-229f9eba43d0a190c1c005f3a52048d6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
