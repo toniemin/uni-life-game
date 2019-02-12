@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="New Game Project"
+config/name="Uni-life"
 run/main_scene="res://scenes/startmenu.tscn"
 config/icon="res://icon.png"
 
