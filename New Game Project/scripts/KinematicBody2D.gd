@@ -39,3 +39,7 @@ func _input(event):
 	
 
 	pass
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_escape"):
+		get_node("PauseMenu").toggleMenu()
