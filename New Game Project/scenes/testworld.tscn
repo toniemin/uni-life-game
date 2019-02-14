@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://player sprites/idle.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://background images/Background_New_Blue.png" type="Texture" id=8]
 [ext_resource path="res://tiles/greytile_snow_L.png" type="Texture" id=9]
 [ext_resource path="res://scenes/soundnode.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -95,7 +96,7 @@ editor_draw_drag_margin = false
 [node name="jumpsound" type="AudioStreamPlayer" parent="Player" index="3"]
 
 stream = ExtResource( 7 )
-volume_db = 0.0
+volume_db = -18.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -1157,5 +1158,7 @@ shape = SubResource( 3 )
 one_way_collision = true
 
 [node name="soundnode" parent="." index="3" instance=ExtResource( 10 )]
+
+[node name="PauseMenu" parent="." index="4" instance=ExtResource( 11 )]
 
 
