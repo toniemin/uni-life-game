@@ -27,12 +27,14 @@ func changeFocus(direction):
 		$Panel/QuitBtn.grab_focus()
 	
 func toggleMenu():
-	if visible():
-		$Panel.hide()
-		$Panel.release_focus()
-	else:
+	if hidden():
+		get_tree().paused = true
 		Panel.show()
 		$Panel/ContinueBtn.get_focus()
+	else:
+		$Panel.hide()
+		$Panel.release_focus()
+		get_tree().pause = false
 		
 func _on_ContinueBtn_pressed():
 	toggleMenu()

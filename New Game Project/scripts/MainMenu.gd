@@ -1,13 +1,11 @@
 extends CanvasLayer
 
-# Number of buttons in the menu.
+# Number of buttons in the main menu.
 const NUM_OF_BTN = 3
 # Scene opened from StartButton.
 const NEXT_SCENE = "res://scenes/testworld.tscn"
 # Text displayed when "Instructions"-button is pressed.
 const HELP_TEXT = "ARROW_LEFT/A == GO LEFT\nARROW_RIGHT/D == GO RIGHT\n SPACEBAR == JUMP/ACTION"
-# Keep track of focused button.
-var index = 0
 
 func _ready():
 	showMainMenu()
@@ -24,13 +22,18 @@ func _process(delta):
 		changeFocus(-1)
 	if Input.is_action_just_pressed("ui_down"):
 		changeFocus(1)
-		
+
+# Draw the main buttons on the screen and hide HelpMenu buttons/text.
 func showMainMenu():
 	get_tree().call_group("HelpMenu", "hide")
 	get_tree().call_group("MainButtons", "show")
 	$StartButton.grab_focus()
 	index = 0
 
+# Keep track of focused button.
+var index = 0
+# With help of index, keep track of which buttons should be focused.
+# Index has values in the range [0, NUM_OF_BTN-1].
 func changeFocus(direction):
 	index = clamp(index+direction, 0, NUM_OF_BTN-1)
 	if $BackButton.has_focus():
@@ -48,8 +51,8 @@ func changeFocus(direction):
 func _on_StartButton_pressed():
 	get_tree().change_scene(NEXT_SCENE)
 
-# Handler for ScoreButton
-# TODO: show tutorial
+# Handler for HelpButton. Hides main buttons and
+# draws playing instructions on the screen.
 func _on_HelpButton_pressed():
 	get_tree().call_group("MainButtons", "hide")
 	get_tree().call_group("HelpMenu", "show")
