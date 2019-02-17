@@ -28,6 +28,9 @@ func _physics_process(delta):
 	else: 
 		$Sprite.play("jump")
 	motion = move_and_slide(motion, UP)
+  
+	position.x = clamp(position.x, 0, 4096)
+	position.y = clamp(position.y, 0, 2880)
 	
 func _ready():
 	jump_sound = get_node("jumpsound")
