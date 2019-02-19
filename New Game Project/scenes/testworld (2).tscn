@@ -43,7 +43,7 @@ extents = Vector2( 25, 57 )
 custom_solver_bias = 0.0
 extents = Vector2( 6.3537, 10 )
 
-[node name="world" type="Node"]
+[node name="world" type="Node" index="0"]
 
 [node name="Player" type="KinematicBody2D" parent="." index="0"]
 
@@ -121,7 +121,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
-position = Vector2( -4.43634, -1.85057 )
+position = Vector2( -262, -404 )
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
