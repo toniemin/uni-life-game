@@ -1,5 +1,7 @@
 extends TextureProgress
 
+signal timer_end
+
 var timer
 
 func _init():
@@ -11,9 +13,6 @@ func _init():
 	
 	add_child(timer)
 	timer.start()
-
-func _ready():
-	connect("value_changed", self, "_on_TextureProgress_value_changed")
 
 func _process(delta):
 	set_value(timer.time_left)
