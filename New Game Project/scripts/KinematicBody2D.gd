@@ -4,7 +4,7 @@ signal clip
 
 const UP = Vector2(0, -1)
 const GRAVITY = 20
-const SPEED = 200
+const SPEED = 400
 const JUMP_HEIGHT_HIGH = -550
 const JUMP_HEIGHT_LOW = -275
 var motion = Vector2()
