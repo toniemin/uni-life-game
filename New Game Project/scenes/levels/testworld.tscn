@@ -9,8 +9,10 @@
 [ext_resource path="res://Sounds and music/jump.ogg" type="AudioStream" id=7]
 [ext_resource path="res://background images/Background_New_Blue.png" type="Texture" id=8]
 [ext_resource path="res://tiles/greytile_snow_L.png" type="Texture" id=9]
-[ext_resource path="res://scenes/soundnode.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/misc/soundnode.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/menus/PauseMenu.tscn" type="PackedScene" id=11]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 
