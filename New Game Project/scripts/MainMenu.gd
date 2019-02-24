@@ -3,7 +3,7 @@ extends CanvasLayer
 # Number of buttons in the main menu.
 const NUM_OF_BTN = 3
 # Scene opened from StartButton.
-const NEXT_SCENE = "res://scenes/testworld (2).tscn"
+const NEXT_SCENE = "res://scenes/levels/testworld (2).tscn"
 # Text displayed when "Instructions"-button is pressed.
 const HELP_TEXT = "ARROW_LEFT/A == GO LEFT\nARROW_RIGHT/D == GO RIGHT\n SPACEBAR == JUMP/ACTION"
 
