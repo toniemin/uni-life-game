@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Player_old.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/soundnode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player/Player_old.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/misc/soundnode.tscn" type="PackedScene" id=2]
+
+
 
 
 
