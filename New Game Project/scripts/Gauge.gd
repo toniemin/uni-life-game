@@ -16,7 +16,6 @@ func _init():
 
 func _process(delta):
 	set_value(timer.time_left)
-	print("Timer stopped: " + String(timer.is_stopped()) + "Current time: " + String(timer.time_left))
 	
 func _on_timer_timeout():
 	pass
