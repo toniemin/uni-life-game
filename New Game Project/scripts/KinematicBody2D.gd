@@ -3,9 +3,9 @@ extends KinematicBody2D
 signal clip
 
 const UP = Vector2(0, -1)
-const GRAVITY = 20
+const GRAVITY = 40
 const SPEED = 400
-const MAX_JUMP = -550
+const MAX_JUMP = -1000
 const MIN_JUMP = -150
 var motion = Vector2()
 var jump_sound
@@ -33,7 +33,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			$Sprite.play("idle")
 	
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		jump_sound.play()
 		motion.y = MAX_JUMP #*2
 		$Sprite.play("jump")
