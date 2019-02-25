@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/CollisionShape2D.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11.39, 28.6 )
+
+[node name="Level" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+position = Vector2( 184, 108 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 65536, 0, 0, 65551, 0, 0, 65561, 0, 0, 131072, 0, 0, 131087, 0, 0, 131097, 0, 0, 196608, 0, 0, 196609, 0, 0, 196613, 0, 0, 196616, 0, 0, 196619, 0, 0, 196623, 0, 0, 196633, 0, 0, 262144, 0, 0, 262155, 0, 0, 262159, 0, 0, 262169, 0, 0, 262206, 0, 0, 327680, 0, 0, 327683, 0, 0, 327691, 0, 0, 327697, 0, 0, 327705, 0, 0, 393216, 0, 0, 393222, 0, 0, 393227, 0, 0, 393241, 0, 0, 458752, 0, 0, 458761, 0, 0, 458763, 0, 0, 458767, 0, 0, 458777, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0 )
+
+[node name="Teleport" type="Area2D" parent="." index="1"]
+
+position = Vector2( 1681, 519 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport" index="0"]
+
+position = Vector2( 0.466716, 0.557669 )
+scale = Vector2( 2.18671, 0.995009 )
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Teleport" index="1"]
+
+texture = ExtResource( 3 )
+
+
