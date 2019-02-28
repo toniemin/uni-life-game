@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://background images/outdoor1.png" type="Texture" id=1]
-[ext_resource path="res://Outdoors1Tiles.tres" type="TileSet" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 75.7071, 1102.99 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2487.54, 10 )
 
 [node name="Outdoors1" type="Node" index="0"]
 
@@ -12,30 +21,7 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="Sprite" index="0"]
-
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 983010, 0, 0, 983011, 0, 0, 983012, 0, 0, 983013, 0, 0, 983014, 0, 0, 983015, 0, 0, 983016, 0, 0, 983017, 0, 0, 983018, 0, 0, 983019, 0, 0, 983020, 0, 0, 983021, 0, 0, 983022, 0, 0, 983023, 0, 0, 983024, 0, 0, 983025, 0, 0, 983026, 0, 0, 983027, 0, 0, 983028, 0, 0, 983029, 0, 0, 983030, 0, 0, 983031, 0, 0, 983032, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 983038, 0, 0, 983039, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917532, 0, 0, 917533, 0, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="SpawnPointPinniB" type="Area2D" parent="Sprite" index="1"]
+[node name="SpawnPointPinniB" type="Area2D" parent="Sprite" index="0"]
 
 position = Vector2( 575.098, 766.758 )
 input_pickable = true
@@ -46,7 +32,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="SpawnPointMainBuilding" type="Area2D" parent="Sprite" index="2"]
+[node name="SpawnPointMainBuilding" type="Area2D" parent="Sprite" index="1"]
 
 position = Vector2( -823.414, 730.004 )
 input_pickable = true
@@ -57,7 +43,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="SpawnPointGame" type="Area2D" parent="Sprite" index="3"]
+[node name="SpawnPointGame" type="Area2D" parent="Sprite" index="2"]
 
 position = Vector2( -44.2169, 777.785 )
 input_pickable = true
@@ -67,5 +53,42 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
+
+position = Vector2( -1850.26, -11.305 )
+shape = SubResource( 1 )
+
+[node name="Walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
+
+position = Vector2( 1944.47, -15.0734 )
+shape = SubResource( 1 )
+
+[node name="Ground" type="StaticBody2D" parent="Sprite" index="4"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Ground" type="CollisionShape2D" parent="Sprite/Ground" index="0"]
+
+position = Vector2( 41.2689, 899.089 )
+scale = Vector2( 0.789893, 0.993854 )
+shape = SubResource( 2 )
 
 

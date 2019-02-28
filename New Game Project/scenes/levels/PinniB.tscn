@@ -1,19 +1,30 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://background images/pinniBinside.png" type="Texture" id=1]
+[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 1683.79, 10 )
 
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 133.971, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 1007.25 )
+
 [node name="PinniB" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 editor/display_folded = true
-position = Vector2( 640, 360 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 639.279, 360 )
+scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -27,7 +38,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/1stFloor" index="0"]
+[node name="1stFloor" type="CollisionShape2D" parent="Sprite/1stFloor" index="0"]
 
 position = Vector2( -228.571, 314.286 )
 scale = Vector2( 0.961859, 1.46153 )
@@ -43,11 +54,16 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/2ndFloor" index="0"]
+[node name="2ndFloor" type="CollisionShape2D" parent="Sprite/2ndFloor" index="0"]
 
 position = Vector2( 228.572, -114.286 )
 scale = Vector2( 0.950238, 1.46153 )
 shape = SubResource( 1 )
+
+[node name="Window" type="CollisionShape2D" parent="Sprite/2ndFloor" index="1"]
+
+position = Vector2( 1697.35, -410.873 )
+shape = SubResource( 2 )
 
 [node name="3rdFloor" type="StaticBody2D" parent="Sprite" index="2"]
 
@@ -59,7 +75,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/3rdFloor" index="0"]
+[node name="3rdFloor" type="CollisionShape2D" parent="Sprite/3rdFloor" index="0"]
 
 position = Vector2( -225, -550 )
 scale = Vector2( 0.950238, 1.46153 )
@@ -75,16 +91,61 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/GroundFloor" index="0"]
+[node name="Ground1" type="CollisionShape2D" parent="Sprite/GroundFloor" index="0"]
 
 position = Vector2( -371.428, 828.571 )
 scale = Vector2( 0.855852, 1.46153 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/GroundFloor" index="1"]
+[node name="Ground2" type="CollisionShape2D" parent="Sprite/GroundFloor" index="1"]
 
 position = Vector2( 371.428, 828.571 )
 scale = Vector2( 0.855852, 1.46153 )
 shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="Sprite" index="4"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -655338, 0, 0, -327657, 0, 0, -65560, 0, 0, 131045, 0, 0, 327705, 0, 0, 327706, 0, 0, 589846, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="5"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
+
+position = Vector2( 1815.26, -1.66711 )
+scale = Vector2( 1, 1.0125 )
+shape = SubResource( 3 )
+
+[node name="Walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
+
+position = Vector2( -1817.58, -1.00647 )
+scale = Vector2( 1, 1.0125 )
+shape = SubResource( 3 )
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://background images/Linna.png" type="Texture" id=1]
+[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -10,7 +11,7 @@ extents = Vector2( 1916.21, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 199.2, 10 )
+extents = Vector2( 214.925, 17.8694 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -25,12 +26,18 @@ extents = Vector2( 23.5367, 14.8148 )
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 149.542, 10 )
+extents = Vector2( 169.718, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 1586.48 )
 
 [node name="Linna" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 637.45, 360 )
 scale = Vector2( 0.351406, 0.35 )
 texture = ExtResource( 1 )
@@ -73,7 +80,6 @@ shape = SubResource( 2 )
 
 [node name="BookCase2" type="StaticBody2D" parent="Sprite" index="2"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -84,13 +90,18 @@ bounce = 0.0
 
 [node name="BookCase2" type="CollisionShape2D" parent="Sprite/BookCase2" index="0"]
 
-position = Vector2( -603.822, -285.714 )
-scale = Vector2( 1.05924, 1 )
+position = Vector2( -1157.9, 20.7857 )
+scale = Vector2( 1.05195, 1.5989 )
+shape = SubResource( 2 )
+
+[node name="BookCase2_2" type="CollisionShape2D" parent="Sprite/BookCase2" index="1"]
+
+position = Vector2( 633.313, 200 )
+scale = Vector2( 0.917721, 1.5989 )
 shape = SubResource( 2 )
 
 [node name="BookCase3" type="StaticBody2D" parent="Sprite" index="3"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -123,7 +134,6 @@ shape = SubResource( 4 )
 
 [node name="Table" type="StaticBody2D" parent="Sprite" index="5"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -136,5 +146,50 @@ bounce = 0.0
 
 position = Vector2( -704.172, 714.286 )
 shape = SubResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="Sprite" index="6"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -131076, 0, 0, -196604, 0, 0, -196603, 0, 0, -65541, 0, 0, -65540, 0, 0, 458743, 0, 0, 458744, 0, 0, 393230, 0, 0, 393231, 0, 0, 655378, 0, 0, 655379, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="7"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
+
+position = Vector2( 1800.05, 0 )
+scale = Vector2( 1, 0.666343 )
+shape = SubResource( 6 )
+
+[node name="Walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
+
+position = Vector2( -1814, -0.999598 )
+scale = Vector2( 1, 0.647739 )
+shape = SubResource( 6 )
 
 

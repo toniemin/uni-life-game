@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://background images/Mainbuildingindoor.png" type="Texture" id=1]
+[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2393.81, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1937.86, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 994.79 )
+
+[node name="MainBuilding" type="Node" index="0"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 630.43, 371.005 )
+scale = Vector2( 0.37, 0.37 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ground" type="StaticBody2D" parent="Sprite" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Ground" type="CollisionShape2D" parent="Sprite/Ground" index="0"]
+
+position = Vector2( 3.91498, 824.542 )
+scale = Vector2( 0.757777, 1 )
+shape = SubResource( 1 )
+
+[node name="Floors" type="StaticBody2D" parent="Sprite" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="1stFloors" type="CollisionShape2D" parent="Sprite/Floors" index="0"]
+
+position = Vector2( 218.75, 306.192 )
+scale = Vector2( 0.825957, 1.52355 )
+shape = SubResource( 2 )
+
+[node name="2ndFloors" type="CollisionShape2D" parent="Sprite/Floors" index="1"]
+
+position = Vector2( -225.968, -110.964 )
+scale = Vector2( 0.825957, 1.52355 )
+shape = SubResource( 2 )
+
+[node name="3dFloors" type="CollisionShape2D" parent="Sprite/Floors" index="2"]
+
+position = Vector2( 222.681, -537.992 )
+scale = Vector2( 0.825957, 1.52355 )
+shape = SubResource( 2 )
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="2"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
+
+position = Vector2( 1806.09, -25.592 )
+shape = SubResource( 3 )
+
+[node name="walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
+
+position = Vector2( -1806.02, -6.49518 )
+scale = Vector2( 1, 1.01914 )
+shape = SubResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="Sprite" index="3"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -393242, 0, 0, 26, 0, 0, 27, 0, 0, 589798, 0, 0, 589799, 0, 0 )
+
+
