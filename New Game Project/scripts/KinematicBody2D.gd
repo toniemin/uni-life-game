@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal clip
+signal action_pressed(body)
 
 const UP = Vector2(0, -1)
 const GRAVITY = 20
@@ -40,6 +40,8 @@ func _physics_process(delta):
 		motion.y = 0
 		jumping = false
 	
+	if Input.is_action_just_pressed("ui_accept"):
+		emit_signal("action_pressed", self)
 	
 	motion = move_and_slide(motion, UP)
   

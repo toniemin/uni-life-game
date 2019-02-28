@@ -1,0 +1,3 @@
+extends CollisionShape2D
+
+signal body_entered
