@@ -3,14 +3,16 @@ extends KinematicBody2D
 signal action_pressed(body)
 
 const UP = Vector2(0, -1)
-const GRAVITY = 20
+const GRAVITY = 40
 const SPEED = 400
-const JUMP_HEIGHT_HIGH = -550
-const JUMP_HEIGHT_LOW = -275
+const MAX_JUMP = -1000
+const MIN_JUMP = -150
 var motion = Vector2()
 var jump_sound
 
-var jumping = false
+func _ready():
+	jump_sound = get_node("jumpsound")
+	set_process_input(true)
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -33,12 +35,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		jump_sound.play()
-		motion.y = JUMP_HEIGHT_HIGH #*2
-		jumping = true
+		motion.y = MAX_JUMP #*2
 		$Sprite.play("jump")
-	if Input.is_action_just_released("ui_up") and jumping:
-		motion.y = 0
-		jumping = false
+	if Input.is_action_just_released("ui_up"):
+		motion.y = clamp(motion.y, MIN_JUMP, motion.y)
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("action_pressed", self)
@@ -48,14 +48,10 @@ func _physics_process(delta):
 	position.x = clamp(position.x, 0, 4096)
 	position.y = clamp(position.y, 0, 2880)
 	
-func _ready():
-	jump_sound = get_node("jumpsound")
-	set_process_input(true)
 	
 func _input(event):
 	if event.is_action_pressed("ui_up"):
 		pass#jump_sound.play()
-	
 
 	pass
 	
