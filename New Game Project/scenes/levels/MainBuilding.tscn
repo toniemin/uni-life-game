@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://background images/Mainbuildingindoor.png" type="Texture" id=1]
 [ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -111,5 +112,13 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -393242, 0, 0, 26, 0, 0, 27, 0, 0, 589798, 0, 0, 589799, 0, 0 )
+
+[node name="default" parent="." index="1" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 1147, 564 )
+dest_lvl = "Outdoors1"
+dest_spoint = "default"
 
 

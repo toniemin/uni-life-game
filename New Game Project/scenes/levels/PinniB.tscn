@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://background images/pinniBinside.png" type="Texture" id=1]
 [ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,11 +19,10 @@ extents = Vector2( 133.971, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 1007.25 )
 
-[node name="PinniB" type="Node" index="0"]
+[node name="PinniB" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 639.279, 360 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 1 )
@@ -147,5 +147,13 @@ shape = SubResource( 3 )
 position = Vector2( -1817.58, -1.00647 )
 scale = Vector2( 1, 1.0125 )
 shape = SubResource( 3 )
+
+[node name="default" parent="." index="1" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 131, 557 )
+dest_lvl = "Outdoors1"
+dest_spoint = "default"
 
 

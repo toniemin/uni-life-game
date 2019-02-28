@@ -1,58 +1,46 @@
 extends Node
 
-var Level1_scene = load("res://scenes/levels/teleport_test_master_v2.tscn")
-var Level2_scene = load("res://scenes/levels/teleport_test_level2_master_v2.tscn")
 var Player_scene = load("res://scenes/player/Player.tscn")
 
 var levels = {
-	"Level1": load("res://scenes/levels/teleport_test_master_v2.tscn"),
-	"Level2": load("res://scenes/levels/teleport_test_level2_master_v2.tscn")
+	"Outdoors1": load("res://scenes/levels/Outdoors1.tscn"),
+	"Outdoors2": load("res://scenes/levels/Outdoors2.tscn"),
+	"MainBuilding": load("res://scenes/levels/MainBuilding.tscn"),
+	"Linna": load("res://scenes/levels/Linna.tscn"),
+	"PinniA": load("res://scenes/levels/PinniA.tscn"),
+	"PinniB": load("res://scenes/levels/PinniB.tscn")
 }
-
-var Level1
-var Level2
-
-var current_lvl
-var next_lvl
 
 var player
 
-func _init():
+var current_lvl
+
+func _ready():
 	player = Player_scene.instance()
 	
-	goto_level1(player)
-
-func goto_level1(player):
-	if Level2 != null:
-		free_level(Level2)
-	Level1 = Level1_scene.instance()
-	set_level(Level1)
+	change_level(null, "Outdoors1", "default")
+	
+	
+func change_level(source_lvl, dest_lvl_name, spawnpoint):
+	var last_lvl = source_lvl
+	current_lvl = levels[dest_lvl_name].instance()
+	if last_lvl != null:
+		free_level(last_lvl)
+	set_level(current_lvl, spawnpoint)
 	
 
-func goto_level2(player):
-	if Level1 != null:
-		free_level(Level1)
-	Level2 = Level2_scene.instance()
-	add_child(Level2)
-	Level2.connect("door_entered", self, "goto_level1")
-	player.connect("action_pressed", Level2, "_on_Player_action_pressed")
-	Level2.add_child(player)
-	var position = Level2.find_node("Area2D").get("position")
-	player.set("position", position)
-
-func switch_level(level):
-	pass
-
-func set_level(level):
+func set_level(level, spawnpoint):
 	add_child(level)
-	level.connect("door_entered", self, "switch_level")
-	player.connect("action_pressed", level, "_on_Player_action_pressed")
+	get_tree().call_group("doors", "connect", "door_entered", self, "change_level")
+	
+	for door in get_tree().get_nodes_in_group("doors"):
+		player.connect("action_pressed", door, "_on_Player_action_pressed")
+	
 	level.add_child(player)
-	player.set("position", level.find_node("Area2D").get("position"))
+	player.set("position", level.find_node(spawnpoint).get("position"))
 
 func free_level(level):
 	level.remove_child(player)
 	remove_child(level)
 	level.queue_free()
 	level = null
-	
