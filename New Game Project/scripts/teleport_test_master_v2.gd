@@ -15,4 +15,4 @@ func _on_Teleport_body_exited(body):
 func _on_Player_action_pressed(body):
 	print(body)
 	if player_in_teleporter:
-		emit_signal("door_entered", body)
+		emit_signal("door_entered", this)
