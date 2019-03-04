@@ -44,6 +44,8 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
+clamp_x = null
+clamp_y = null
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

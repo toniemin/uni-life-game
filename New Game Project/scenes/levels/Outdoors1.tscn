@@ -13,18 +13,17 @@ extents = Vector2( 75.7071, 1102.99 )
 custom_solver_bias = 0.0
 extents = Vector2( 2487.54, 10 )
 
-[node name="Outdoors1" type="Node"]
+[node name="Outdoors1" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 620, 290 )
+position = Vector2( 769.9, 430.647 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -35,12 +34,12 @@ bounce = 0.0
 
 [node name="Walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
 
-position = Vector2( -1850.26, -11.305 )
+position = Vector2( -2012.19, -20.5581 )
 shape = SubResource( 1 )
 
 [node name="Walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
 
-position = Vector2( 1944.47, -15.0734 )
+position = Vector2( 1990.74, -10.4468 )
 shape = SubResource( 1 )
 
 [node name="Ground" type="StaticBody2D" parent="Sprite" index="1"]
@@ -63,7 +62,9 @@ shape = SubResource( 2 )
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 603, 601 )
+visible = false
+position = Vector2( 746.199, 733.647 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 dest_lvl = "Outdoors1"
 dest_spoint = "GameDoor"
 
@@ -71,7 +72,7 @@ dest_spoint = "GameDoor"
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 182, 602 )
+position = Vector2( 248.128, 732.199 )
 dest_lvl = "MainBuilding"
 dest_spoint = "default"
 
@@ -79,7 +80,7 @@ dest_spoint = "default"
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 900, 599 )
+position = Vector2( 1177.04, 735.497 )
 dest_lvl = "PinniB"
 dest_spoint = "default"
 

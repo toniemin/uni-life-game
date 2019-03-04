@@ -5,7 +5,7 @@ const NUM_OF_BTN = 3
 # Scene opened from StartButton.
 const NEXT_SCENE = "res://scenes/misc/root_scene.tscn"
 # Text displayed when "Instructions"-button is pressed.
-const HELP_TEXT = "ARROW_LEFT/A == GO LEFT\nARROW_RIGHT/D == GO RIGHT\nARROW_UP/w == JUMP\nSPACEBAR == ENTER DOOR"
+const HELP_TEXT = "ARROW_LEFT == GO LEFT\nARROW_RIGHT == GO RIGHT\nARROW_UP == JUMP\nSPACEBAR == ENTER DOOR"
 
 func _ready():
 	showMainMenu()

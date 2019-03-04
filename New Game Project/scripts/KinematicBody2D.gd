@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 signal action_pressed(body)
 
+export (int) var clamp_x
+export (int) var clamp_y
+
 const UP = Vector2(0, -1)
 const GRAVITY = 40
 const SPEED = 400
@@ -45,8 +48,14 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, UP)
   
-	position.x = clamp(position.x, 0, 4096)
-	position.y = clamp(position.y, 0, 2880)
+	# Limit player movement to level
+	position.x = clamp(position.x, 0, clamp_x)
+	position.y = clamp(position.y, 0, clamp_y)
+	
+	# Limit camera movement to level size
+	var camera = get_node("Camera2D")
+	camera.limit_right = clamp_x
+	camera.limit_bottom = clamp_y
 	
 	
 func _input(event):

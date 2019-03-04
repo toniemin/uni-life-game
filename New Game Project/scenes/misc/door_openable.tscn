@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/door_openable.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://doubledoor_2.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -10,7 +10,7 @@ extents = Vector2( 11.39, 28.6 )
 
 [node name="DoorOpenable" type="Area2D"]
 
-position = Vector2( 1681, 519 )
+position = Vector2( 1.93896, 0.967651 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -20,10 +20,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-dest_lvl = null
+dest_lvl = "Null"
 dest_spoint = null
 
 [node name="DoorCollision" type="CollisionShape2D" parent="." index="0"]
@@ -37,6 +34,8 @@ __meta__ = {
 
 [node name="Texture" type="Sprite" parent="." index="1"]
 
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 

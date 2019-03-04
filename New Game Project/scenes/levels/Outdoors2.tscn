@@ -12,14 +12,14 @@ extents = Vector2( 24.3823, 1362.7 )
 custom_solver_bias = 0.0
 extents = Vector2( 1850, 10 )
 
-[node name="Outdoors2" type="Node" index="0"]
+[node name="Outdoors2" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 670, 290 )
+position = Vector2( 767.977, 433.197 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="SpawnPointPinniA" type="Area2D" parent="Sprite" index="0"]
 
