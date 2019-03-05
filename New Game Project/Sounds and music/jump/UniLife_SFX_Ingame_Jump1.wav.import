@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UniLife_SFX_Ingame_Jump1.wav-d81acae725db06c135fabcfea2f78bf2.sample"
+
+[deps]
+
+source_file="res://Sounds and music/jump/UniLife_SFX_Ingame_Jump1.wav"
+dest_files=[ "res://.import/UniLife_SFX_Ingame_Jump1.wav-d81acae725db06c135fabcfea2f78bf2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

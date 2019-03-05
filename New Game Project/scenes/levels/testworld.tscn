@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://player sprites/idle.png" type="Texture" id=2]
 [ext_resource path="res://player sprites/walk3.png" type="Texture" id=3]
 [ext_resource path="res://player sprites/walk2.png" type="Texture" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://tiles/greytile_snow_L.png" type="Texture" id=9]
 [ext_resource path="res://scenes/misc/soundnode.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/menus/PauseMenu.tscn" type="PackedScene" id=11]
+
 
 
 
