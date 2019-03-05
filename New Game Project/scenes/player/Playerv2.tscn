@@ -2,8 +2,7 @@
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 
-
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 350, 170 )
 input_pickable = false
@@ -11,10 +10,8 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-MAX_SPEED = 500
-DEFAULT_SPEED = 200
-DEFAULT_JUMP_HEIGHT = -550
-JUMP_SOUND = 10
+clamp_x = null
+clamp_y = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
