@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://animations/player_idle/player_idle0.png" type="Texture" id=2]
 [ext_resource path="res://animations/player_run/player_run00.png" type="Texture" id=3]
 [ext_resource path="res://animations/player_run/player_run01.png" type="Texture" id=4]
@@ -47,7 +47,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 25, 57 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 190, 1870 )
 scale = Vector2( 0.75, 0.75 )
@@ -57,6 +57,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+jump_sounds = null
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
