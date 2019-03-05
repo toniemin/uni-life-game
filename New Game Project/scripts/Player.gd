@@ -9,10 +9,32 @@ const MAX_JUMP = -1000
 const MIN_JUMP = -150
 var motion = Vector2()
 
-export (Array) var jump_sounds
+var soundPlayer
+var jump_sounds
+
+func play_jump_sound():
+	soundPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()-1])
+	soundPlayer.play()
+	
+
+func _init():
+	jump_sounds = []
+	var dir = Directory.new()
+	dir.open("res://Sounds and music/jump/")
+	dir.list_dir_begin()
+	
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with(".") and not file.ends_with(".import"):
+			var audioFile = load(dir.get_current_dir() + '/'+ file)
+			jump_sounds.append(audioFile)
+	
+	dir.list_dir_end()
 
 func _ready():
-	jump_sound = get_node("jumpsound")
+	soundPlayer = get_node("jumpsound")
 	set_process_input(true)
 
 func _physics_process(delta):
@@ -35,8 +57,8 @@ func _physics_process(delta):
 			$Sprite.play("idle")
 	
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		jump_sound.play()
-		motion.y = MAX_JUMP #*2
+		play_jump_sound()
+		motion.y = MAX_JUMP
 		$Sprite.play("jump")
 	if Input.is_action_just_released("ui_up"):
 		motion.y = clamp(motion.y, MIN_JUMP, motion.y)
@@ -48,13 +70,6 @@ func _physics_process(delta):
   
 	position.x = clamp(position.x, 0, 4096)
 	position.y = clamp(position.y, 0, 2880)
-	
-	
-func _input(event):
-	if event.is_action_pressed("ui_up"):
-		pass#jump_sound.play()
-
-	pass
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_escape"):

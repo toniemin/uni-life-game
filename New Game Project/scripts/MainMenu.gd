@@ -7,6 +7,17 @@ const NEXT_SCENE = "res://scenes/misc/root_scene.tscn"
 # Text displayed when "Instructions"-button is pressed.
 const HELP_TEXT = "ARROW_LEFT/A == GO LEFT\nARROW_RIGHT/D == GO RIGHT\nARROW_UP/w == JUMP\nSPACEBAR == ENTER DOOR"
 
+# Sound player for menu sounds.
+onready var soundplayer = get_node("SoundPlayer")
+
+# Menu sounds
+var menuMoveSound
+var menuSelectSound
+
+func _init():
+	menuMoveSound = load("res://Sounds and music/misc/UniLife_SFX_Menu_move.wav")
+	menuSelectSound = load("res://Sounds and music/misc/UniLife_SFX_Menu_select.wav")
+
 func _ready():
 	showMainMenu()
 	$HelpText.text = HELP_TEXT
@@ -22,6 +33,9 @@ func _process(delta):
 		changeFocus(-1)
 	if Input.is_action_just_pressed("ui_down"):
 		changeFocus(1)
+	if Input.is_action_just_pressed("ui_accept"):
+		soundplayer.set_stream(menuSelectSound)
+		soundplayer.play()
 
 # Draw the main buttons on the screen and hide HelpMenu buttons/text.
 func showMainMenu():
@@ -38,6 +52,9 @@ func changeFocus(direction):
 	index = clamp(index+direction, 0, NUM_OF_BTN-1)
 	if $BackButton.has_focus():
 		return
+	
+	soundplayer.set_stream(menuMoveSound)
+	soundplayer.play()
 	
 	if index == 0:
 		$StartButton.grab_focus()

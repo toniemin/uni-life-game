@@ -36,7 +36,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -226,5 +226,14 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
