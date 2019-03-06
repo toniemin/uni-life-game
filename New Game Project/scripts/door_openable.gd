@@ -5,6 +5,7 @@ signal door_entered
 var source
 export (String) var dest_lvl
 export (String) var dest_spoint
+export (bool) var active = true
 
 var player_in_teleporter = false
 
@@ -22,6 +23,5 @@ func _on_DoorOpenable_body_exited(body):
 
 
 func _on_Player_action_pressed(body):
-	print(body)
-	if player_in_teleporter:
+	if player_in_teleporter and active:
 		emit_signal("door_entered", source, dest_lvl, dest_spoint)
