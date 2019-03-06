@@ -6,6 +6,7 @@ var source
 export (String) var dest_lvl
 export (String) var dest_spoint
 export (bool) var active = true
+export (bool) var openable = false
 
 var player_in_teleporter = false
 

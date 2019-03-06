@@ -62,12 +62,14 @@ shape = SubResource( 2 )
 
 [node name="default" parent="." index="1" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 603, 601 )
 dest_lvl = "Outdoors2"
 dest_spoint = "Output"
 active = true
+openable = false
 
 [node name="MainBuildingDoor" parent="." index="2" groups=[
 "doors",
@@ -77,6 +79,7 @@ position = Vector2( 182, 602 )
 dest_lvl = "MainBuilding"
 dest_spoint = "default"
 active = true
+openable = false
 
 [node name="PinniBDoor" parent="." index="3" groups=[
 "doors",
@@ -86,9 +89,11 @@ position = Vector2( 900, 599 )
 dest_lvl = "PinniB"
 dest_spoint = "default"
 active = true
+openable = false
 
 [node name="Outdoors2" parent="." index="4" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 3 )]
 
 position = Vector2( 1216, 602 )
@@ -98,6 +103,7 @@ active = true
 
 [node name="Input" parent="." index="5" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 3 )]
 
 position = Vector2( 1044, 604 )

@@ -13,7 +13,7 @@ extents = Vector2( 24.3823, 1362.7 )
 custom_solver_bias = 0.0
 extents = Vector2( 1850, 10 )
 
-[node name="Outdoors2" type="Node"]
+[node name="Outdoors2" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -62,6 +62,7 @@ shape = SubResource( 2 )
 
 [node name="Outdoors1" parent="." index="1" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 788, 574 )
@@ -71,6 +72,7 @@ active = true
 
 [node name="Output" parent="." index="2" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 622, 440 )
