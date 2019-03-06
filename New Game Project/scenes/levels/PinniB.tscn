@@ -155,5 +155,7 @@ shape = SubResource( 3 )
 position = Vector2( 131, 557 )
 dest_lvl = "Outdoors1"
 dest_spoint = "default"
+active = true
+auto_open = false
 
 

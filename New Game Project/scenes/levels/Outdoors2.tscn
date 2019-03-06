@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://background images/outdoor2.png" type="Texture" id=1]
-[ext_resource path="res://scenes/misc/DoorAutoActivate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,14 +13,14 @@ extents = Vector2( 24.3823, 1362.7 )
 custom_solver_bias = 0.0
 extents = Vector2( 1850, 10 )
 
-[node name="Outdoors2" type="Node" index="0"]
+[node name="Outdoors2" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 670, 290 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="0"]
 
@@ -60,21 +60,23 @@ position = Vector2( -11, 900 )
 scale = Vector2( 1.03292, 1 )
 shape = SubResource( 2 )
 
-[node name="Outdoors1" parent="." index="1" groups=[
+[node name="Outdoors1_entry" parent="." index="1" groups=[
 "doors",
-"autoopen",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 788, 574 )
+position = Vector2( 249, 402 )
 dest_lvl = "Outdoors1"
-dest_spoint = "Input"
-active = true
+dest_spoint = "Outdoors2"
+active = false
+auto_open = false
 
-[node name="Output" parent="." index="2" groups=[
+[node name="Outdoors1" parent="." index="2" groups=[
 "doors",
-"autoopen",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 622, 440 )
+position = Vector2( 563, 390 )
+dest_lvl = "Null"
+active = false
+auto_open = false
 
 
