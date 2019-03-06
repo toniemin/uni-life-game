@@ -23,5 +23,6 @@ script = ExtResource( 1 )
 
 margin_right = 358.0
 margin_bottom = 84.0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_constants" ]
 
 
