@@ -13,7 +13,7 @@ extents = Vector2( 75.7071, 1102.99 )
 custom_solver_bias = 0.0
 extents = Vector2( 2487.54, 10 )
 
-[node name="Outdoors1" type="Node" index="0"]
+[node name="Outdoors1" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -24,6 +24,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="0"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -44,6 +45,7 @@ shape = SubResource( 1 )
 
 [node name="Ground" type="StaticBody2D" parent="Sprite" index="1"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1

@@ -8,7 +8,7 @@
 [sub_resource type="ShortCut" id=1]
 
 
-[node name="CanvasLayer" type="CanvasLayer" index="0"]
+[node name="CanvasLayer" type="CanvasLayer"]
 
 layer = 100
 offset = Vector2( 0, 0 )

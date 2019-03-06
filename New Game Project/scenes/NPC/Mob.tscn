@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/Mob.gd" type="Script" id=1]
+[ext_resource path="res://animations/npc_walk/npc_walk0.png" type="Texture" id=2]
+[ext_resource path="res://animations/npc_walk/npc_walk1.png" type="Texture" id=3]
+[ext_resource path="res://animations/npc_walk/npc_walk2.png" type="Texture" id=4]
+[ext_resource path="res://animations/npc_walk/npc_walk3.png" type="Texture" id=5]
+[ext_resource path="res://animations/npc_walk/npc_walk4.png" type="Texture" id=6]
+[ext_resource path="res://animations/npc_walk/npc_walk5.png" type="Texture" id=7]
+[ext_resource path="res://animations/npc_walk/npc_walk6.png" type="Texture" id=8]
+[ext_resource path="res://animations/npc_walk/npc_walk7.png" type="Texture" id=9]
+[ext_resource path="res://animations/npc_walk/npc_walk9.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 48 )
+
+[node name="Mob" type="RigidBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+min_speed = 200
+max_speed = 250
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 5
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+
+

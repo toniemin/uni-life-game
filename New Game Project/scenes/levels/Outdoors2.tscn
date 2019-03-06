@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://background images/outdoor2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -47,6 +48,7 @@ audio_bus_name = "Master"
 
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="2"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -69,6 +71,7 @@ shape = SubResource( 1 )
 
 [node name="Ground" type="StaticBody2D" parent="Sprite" index="3"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -82,5 +85,9 @@ bounce = 0.0
 position = Vector2( -11, 900 )
 scale = Vector2( 1.03292, 1 )
 shape = SubResource( 2 )
+
+[node name="DoorOpenable" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 113.841, 737.519 )
 
 
