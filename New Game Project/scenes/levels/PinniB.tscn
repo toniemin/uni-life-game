@@ -21,7 +21,7 @@ extents = Vector2( 133.971, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 1007.25 )
 
-[node name="PinniB" type="Node" index="0"]
+[node name="PinniB" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -164,8 +164,8 @@ _sections_unfolded = [ "Visibility" ]
 position = Vector2( 729.552, 281.632 )
 
 [node name="Outdoors1" parent="." index="5" groups=[
-"auto-open",
 "doors",
+"auto-open",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 78, 593 )
@@ -216,15 +216,18 @@ _sections_unfolded = [ "Cell" ]
 
 position = Vector2( 469.189, 92.8912 )
 scale = Vector2( 0.676869, 0.573065 )
+lvl_name = "PinniB"
 
 [node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 772.44, 599.947 )
 scale = Vector2( 0.676869, 0.573065 )
+lvl_name = "PinniB"
 
 [node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 1003.25, 408.42 )
 scale = Vector2( 0.676869, 0.573065 )
+lvl_name = "PinniB"
 
 

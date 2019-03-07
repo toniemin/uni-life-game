@@ -262,15 +262,18 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 860.076, 605.23 )
 scale = Vector2( 0.694334, 0.582903 )
+lvl_name = "Linna"
 
 [node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 1088.62, 144.064 )
 scale = Vector2( 0.694334, 0.582903 )
+lvl_name = "Linna"
 
 [node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 660.101, 150.865 )
 scale = Vector2( 0.694334, 0.582903 )
+lvl_name = "Linna"
 
 

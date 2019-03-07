@@ -3,9 +3,9 @@ extends CanvasLayer
 # Scene opened from StartButton.
 const NEXT_SCENE = "res://scenes/misc/root_scene.tscn"
 
-export (int) var credits
+export var credits = 0
 
-var required_completion = 40
+var required_completion = 20
 var required_victory = 60
 
 func _ready():
@@ -15,9 +15,11 @@ func _ready():
 	find_node("RestartButton").connect("pressed", self, "_on_RestartButton_pressed")
 	
 	if (credits >= required_completion && credits < required_victory):
-		 PartialVictory.show()
+		 $PartialVictory.show()
 	elif (credits >= required_victory):
-		Victory.show()
+		$Victory.show()
+	else:
+		$Failure.show()
 	
 func _on_RestartButton_pressed():
 	var tree = get_tree()

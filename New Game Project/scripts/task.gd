@@ -10,15 +10,15 @@ var completed = false
 var player_in_task = false
 
 func _ready():
-	connect("body_entered", self, "_on_DoorOpenable_body_entered")
-	connect("body_exited", self, "_on_DoorOpenable_body_exited")
+	connect("body_entered", self, "_on_Task_body_entered")
+	connect("body_exited", self, "_on_Task_body_exited")
 	add_to_group("tasks")
 
-func _on_DoorOpenable_body_entered(body):
+func _on_Task_body_entered(body):
 	player_in_task = true
 
 
-func _on_DoorOpenable_body_exited(body):
+func _on_Task_body_exited(body):
 	player_in_task = false
 
 

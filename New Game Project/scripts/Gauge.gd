@@ -18,9 +18,9 @@ func _process(delta):
 	set_value(timer.time_left)
 	
 func _on_timer_timeout():
-	var game_over_screen = load("res://scenes/menus/GameOver.tscn")
-	
 	var tree = get_tree()
-	tree.get_root().add_child(game_over_screen.instance())
+	var game_over_screen = load("res://scenes/menus/GameOver.tscn").instance()
+	game_over_screen.set("credits", tree.get_root().get_node("Master").get("credits_counter"))
+	tree.get_root().add_child(game_over_screen)
 	tree.paused = true
 	pass
