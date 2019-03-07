@@ -52,3 +52,4 @@ func free_level(level):
 	remove_child(level)
 	level.queue_free()
 	level = null
+	

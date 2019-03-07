@@ -128,6 +128,8 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="NPC2" type="KinematicBody2D" parent="." index="5"]
 
+editor/display_folded = true
+modulate = Color( 0.957031, 0.814505, 0.0448608, 1 )
 position = Vector2( 888.287, 741.561 )
 scale = Vector2( 0.4, 0.4 )
 input_pickable = false
@@ -152,16 +154,44 @@ shape = SubResource( 3 )
 one_way_collision = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Outdoors2_exit" parent="." index="6" groups=[
+[node name="NPC3" type="KinematicBody2D" parent="." index="6"]
+
+editor/display_folded = true
+modulate = Color( 0.0448608, 0.230145, 0.957031, 1 )
+position = Vector2( 1474.52, 741.561 )
+scale = Vector2( 0.4, 0.4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC3" index="0"]
+
+frames = SubResource( 2 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3" index="1"]
+
+position = Vector2( -1, 7 )
+shape = SubResource( 3 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Outdoors2_exit" parent="." index="7" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 1320, 737 )
 active = false
 
-[node name="Outdoors2" parent="." index="7" groups=[
-"auto-open",
+[node name="Outdoors2" parent="." index="8" groups=[
 "doors",
+"auto-open",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 1439, 739 )
