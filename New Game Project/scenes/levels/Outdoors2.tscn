@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://background images/outdoor2.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/NPC/NPC.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -116,8 +117,8 @@ dest_lvl = "Linna"
 dest_spoint = "Linna_entry"
 
 [node name="Outdoors1" parent="." index="3" groups=[
-"auto-open",
 "doors",
+"auto-open",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 78, 637 )
@@ -132,5 +133,25 @@ auto_open = true
 
 position = Vector2( 270, 725 )
 active = false
+
+[node name="NPC" parent="." index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 481.013, 746.493 )
+
+[node name="NPC2" parent="." index="6" instance=ExtResource( 3 )]
+
+modulate = Color( 0.533941, 0.730469, 0.399475, 1 )
+position = Vector2( 696.466, 746.493 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="NPC3" parent="." index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 1349.51, 746.494 )
+
+[node name="NPC4" parent="." index="8" instance=ExtResource( 3 )]
+
+modulate = Color( 0.225586, 0.235733, 0.875, 1 )
+position = Vector2( 1476.44, 741.483 )
+_sections_unfolded = [ "Visibility" ]
 
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://background images/Linna.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=3]
+[ext_resource path="res://brownsmalltile.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/NPC/NPC.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/misc/task.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,7 +14,7 @@ extents = Vector2( 1916.21, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 214.925, 17.8694 )
+extents = Vector2( 205.9, 17.8694 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -27,7 +29,7 @@ extents = Vector2( 23.5367, 14.8148 )
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 169.718, 10 )
+extents = Vector2( 133.592, 11.7651 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
@@ -38,6 +40,7 @@ extents = Vector2( 10, 1586.48 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 637.45, 360 )
 scale = Vector2( 0.351406, 0.35 )
 texture = ExtResource( 1 )
@@ -45,7 +48,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="GroundFloor" type="StaticBody2D" parent="Sprite" index="0"]
 
-editor/display_folded = true
 position = Vector2( 5.48529, 857.143 )
 scale = Vector2( 0.944643, 1 )
 input_pickable = false
@@ -58,13 +60,12 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/GroundFloor" index="0"]
 
-position = Vector2( -28.2495, 85.7142 )
+position = Vector2( -7.16223, 168.571 )
 scale = Vector2( 1.00614, 2.6978 )
 shape = SubResource( 1 )
 
 [node name="BookCase" type="StaticBody2D" parent="Sprite" index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -75,7 +76,7 @@ bounce = 0.0
 
 [node name="BookCase" type="CollisionShape2D" parent="Sprite/BookCase" index="0"]
 
-position = Vector2( -277.315, 228.572 )
+position = Vector2( -262.212, 243.736 )
 shape = SubResource( 2 )
 
 [node name="BookCase2" type="StaticBody2D" parent="Sprite" index="2"]
@@ -90,13 +91,32 @@ bounce = 0.0
 
 [node name="BookCase2" type="CollisionShape2D" parent="Sprite/BookCase2" index="0"]
 
-position = Vector2( -1157.9, 20.7857 )
+position = Vector2( -1150.35, 35.9497 )
 scale = Vector2( 1.05195, 1.5989 )
 shape = SubResource( 2 )
 
 [node name="BookCase2_2" type="CollisionShape2D" parent="Sprite/BookCase2" index="1"]
 
 position = Vector2( 633.313, 200 )
+scale = Vector2( 0.917721, 1.5989 )
+shape = SubResource( 2 )
+
+[node name="BookCase2_3" type="CollisionShape2D" parent="Sprite/BookCase2" index="2"]
+
+position = Vector2( -614.858, -253.828 )
+scale = Vector2( 0.917721, 1.5989 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="BookCase2_4" type="CollisionShape2D" parent="Sprite/BookCase2" index="3"]
+
+position = Vector2( 1189.14, -518.13 )
+scale = Vector2( 0.917721, 1.5989 )
+shape = SubResource( 2 )
+
+[node name="BookCase2_5" type="CollisionShape2D" parent="Sprite/BookCase2" index="4"]
+
+position = Vector2( 635.55, -658.054 )
 scale = Vector2( 0.917721, 1.5989 )
 shape = SubResource( 2 )
 
@@ -112,12 +132,12 @@ bounce = 0.0
 
 [node name="BookCase3" type="CollisionShape2D" parent="Sprite/BookCase3" index="0"]
 
+visible = false
 position = Vector2( -135.029, -85.7142 )
 shape = SubResource( 3 )
 
 [node name="Laptop" type="StaticBody2D" parent="Sprite" index="4"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -147,6 +167,11 @@ bounce = 0.0
 position = Vector2( -704.172, 714.286 )
 shape = SubResource( 5 )
 
+[node name="Table2" type="CollisionShape2D" parent="Sprite/Table" index="1"]
+
+position = Vector2( 626.183, 783.907 )
+shape = SubResource( 5 )
+
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="6"]
 
 input_pickable = false
@@ -170,8 +195,8 @@ scale = Vector2( 1, 0.647739 )
 shape = SubResource( 6 )
 
 [node name="Linna" parent="." index="1" groups=[
-"auto-open",
 "doors",
+"auto-open",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 119, 621 )
@@ -204,10 +229,48 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1245215, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 2031642, 0, 0, 2031643, 0, 0, 2031675, 0, 0, 2228286, 0, 0, 2228287, 0, 0, 2228288, 0, 0, 2228289, 0, 0, 2228290, 0, 0, 2555970, 0, 0, 2555971, 0, 0, 2555972, 0, 0, 2555973, 0, 0, 2555974, 0, 0 )
+tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="NPC" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 489.363, 667.995 )
+
+[node name="NPC2" parent="." index="5" instance=ExtResource( 4 )]
+
+modulate = Color( 0.177887, 0.215841, 0.785156, 1 )
+position = Vector2( 606.276, 171.951 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="NPC3" parent="." index="6" instance=ExtResource( 4 )]
+
+modulate = Color( 0.527344, 0.534729, 1, 1 )
+position = Vector2( 171.657, 316.824 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="NPC4" parent="." index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 548.573, 394.171 )
+
+[node name="NPC5" parent="." index="8" instance=ExtResource( 4 )]
+
+modulate = Color( 0.933594, 0.914647, 0.448563, 1 )
+position = Vector2( 808.853, 378.211 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Task" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 860.076, 605.23 )
+scale = Vector2( 0.694334, 0.582903 )
+
+[node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 1088.62, 144.064 )
+scale = Vector2( 0.694334, 0.582903 )
+
+[node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 660.101, 150.865 )
+scale = Vector2( 0.694334, 0.582903 )
 
 

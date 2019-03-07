@@ -36,7 +36,6 @@ collision_layer = 1
 collision_mask = 0
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
