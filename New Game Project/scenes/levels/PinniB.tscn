@@ -164,8 +164,8 @@ _sections_unfolded = [ "Visibility" ]
 position = Vector2( 729.552, 281.632 )
 
 [node name="Outdoors1" parent="." index="5" groups=[
-"doors",
 "auto-open",
+"doors",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 78, 593 )

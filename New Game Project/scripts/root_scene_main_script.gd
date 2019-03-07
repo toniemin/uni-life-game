@@ -29,11 +29,11 @@ var current_lvl_name
 
 var creditsCounter = 0
 
+var init = true
+
 func _ready():
 	player = Player_scene.instance()
-
 	change_level(null, "Outdoors1", "default")
-	connect("scoreChanged", $"player/HUD/VBoxContainer/HBoxContainer/Background/TaskName", "updateScore")
 
 
 func change_level(source_lvl, dest_lvl_name, spawnpoint):
@@ -57,6 +57,13 @@ func set_level(level, spawnpoint):
 	add_tasks(current_lvl_name)
 	
 	level.add_child(player)
+	
+	if init:
+		var timer = get_tree().get_nodes_in_group("timer")[0]
+		connect("scoreChanged", timer, "updateScore")
+		
+		init = false
+	
 	var level_bg = level.get_node("Sprite")
 	var level_size = level_bg.texture.get_size()
 	var level_scale = level_bg.global_scale
@@ -65,14 +72,21 @@ func set_level(level, spawnpoint):
 	player.set("clamp_y", level_size.y * level_scale.y)
 
 func add_tasks(level):
-	var allTasks = get_tree().get_nodes_in_group("task")
+	print('adding tasks')
+	var allTasks = get_tree().get_nodes_in_group("tasks")
+	print('tasks: ', allTasks)
 	get_tree().call_group("tasks", "connect", "task_completed", self, "completeTask")
+	
+	for task in allTasks:
+		player.connect("action_pressed", task, "_on_Player_action_pressed")
+	
 	var tasksToRemove = 0
 	if (tasks_left.has(level)):
 		tasksToRemove = 3 - tasks_left[level]
 	var i = 0
 	for task in allTasks:
 		if i <= tasksToRemove:
+			print('removing task')
 			task.queue_free()
 			i += 1
 		else:
@@ -82,8 +96,7 @@ func add_tasks(level):
 func completeTask(task, lvl_name, credits):
 	creditsCounter += credits
 	emit_signal("scoreChanged", creditsCounter)
-	tasks_left[lvl_name] -= 1
-	current_lvl.removeChild(task)
+	#tasks_left[lvl_name] = tasks_left[lvl_name] - 1
 	task.queue_free()
 
 func free_level(level):
