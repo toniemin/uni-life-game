@@ -2,12 +2,11 @@
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://player sprites/idle.png" type="Texture" id=2]
-[ext_resource path="res://player sprites/jump1.png" type="Texture" id=3]
-[ext_resource path="res://player sprites/walk3.png" type="Texture" id=4]
-[ext_resource path="res://player sprites/walk2.png" type="Texture" id=5]
-[ext_resource path="res://player sprites/walk4.png" type="Texture" id=6]
+[ext_resource path="res://player sprites/walk3.png" type="Texture" id=3]
+[ext_resource path="res://player sprites/walk2.png" type="Texture" id=4]
+[ext_resource path="res://player sprites/walk4.png" type="Texture" id=5]
+[ext_resource path="res://player sprites/jump1.png" type="Texture" id=6]
 [ext_resource path="res://Sounds and music/jump.ogg" type="AudioStream" id=7]
-
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -17,14 +16,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -45,6 +44,8 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
+clamp_x = null
+clamp_y = null
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

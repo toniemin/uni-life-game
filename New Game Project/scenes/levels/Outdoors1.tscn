@@ -1,30 +1,50 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://background images/outdoor1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NPC.gd" type="Script" id=3]
+[ext_resource path="res://animations/npc_walk/npc_walk0.png" type="Texture" id=4]
+[ext_resource path="res://animations/npc_walk/npc_walk1.png" type="Texture" id=5]
+[ext_resource path="res://animations/npc_walk/npc_walk2.png" type="Texture" id=6]
+[ext_resource path="res://animations/npc_walk/npc_walk3.png" type="Texture" id=7]
+[ext_resource path="res://animations/npc_walk/npc_walk4.png" type="Texture" id=8]
+[ext_resource path="res://animations/npc_walk/npc_walk5.png" type="Texture" id=9]
+[ext_resource path="res://animations/npc_walk/npc_walk6.png" type="Texture" id=10]
+[ext_resource path="res://animations/npc_walk/npc_walk7.png" type="Texture" id=11]
+[ext_resource path="res://animations/npc_walk/npc_walk8.png" type="Texture" id=12]
+[ext_resource path="res://animations/npc_walk/npc_walk9.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 75.7071, 1102.99 )
+extents = Vector2( 2487.54, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 2487.54, 10 )
+extents = Vector2( 28.9541, 99.57 )
 
 [node name="Outdoors1" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 620, 290 )
+position = Vector2( 769.9, 430.647 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" type="StaticBody2D" parent="Sprite" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -33,18 +53,9 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Walls" type="CollisionShape2D" parent="Sprite/Walls" index="0"]
-
-position = Vector2( -1850.26, -11.305 )
-shape = SubResource( 1 )
-
-[node name="Walls2" type="CollisionShape2D" parent="Sprite/Walls" index="1"]
-
-position = Vector2( 1944.47, -15.0734 )
-shape = SubResource( 1 )
-
 [node name="Ground" type="StaticBody2D" parent="Sprite" index="1"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -57,14 +68,16 @@ bounce = 0.0
 
 position = Vector2( 41.2689, 899.089 )
 scale = Vector2( 0.789893, 0.993854 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="default" parent="." index="1" groups=[
-"autoopen",
 "doors",
+"autoopen",
 ] instance=ExtResource( 2 )]
 
+visible = false
 position = Vector2( 603, 601 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 dest_lvl = "Outdoors2"
 dest_spoint = "Output"
 active = false
@@ -73,7 +86,7 @@ active = false
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 163.5, 582.5 )
+position = Vector2( 308, 719 )
 scale = Vector2( 3.32813, 1.76563 )
 dest_lvl = "MainBuilding"
 dest_spoint = "Outdoors1_exit"
@@ -82,24 +95,76 @@ dest_spoint = "Outdoors1_exit"
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 1019.5, 592.5 )
+position = Vector2( 1165, 734 )
 scale = Vector2( 4.67188, 1.60938 )
 dest_lvl = "PinniB"
 dest_spoint = "Outdoors1_exit"
 
-[node name="Outdoors2_exit" parent="." index="4" groups=[
+[node name="NPC" type="KinematicBody2D" parent="." index="4"]
+
+position = Vector2( 36.2364, 742.789 )
+scale = Vector2( 0.4, 0.4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC" index="0"]
+
+frames = SubResource( 2 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" index="1"]
+
+position = Vector2( -1, 7 )
+shape = SubResource( 3 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="NPC2" type="KinematicBody2D" parent="." index="5"]
+
+position = Vector2( 888.287, 741.561 )
+scale = Vector2( 0.4, 0.4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC2" index="0"]
+
+frames = SubResource( 2 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2" index="1"]
+
+position = Vector2( -1, 7 )
+shape = SubResource( 3 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Outdoors2_exit" parent="." index="6" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 1203, 590 )
+position = Vector2( 1320, 737 )
 active = false
 
-[node name="Outdoors2" parent="." index="5" groups=[
+[node name="Outdoors2" parent="." index="7" groups=[
 "auto-open",
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 1308, 591 )
+position = Vector2( 1439, 739 )
 dest_lvl = "Outdoors2"
 dest_spoint = "Outdoors1_exit"
 auto_open = true

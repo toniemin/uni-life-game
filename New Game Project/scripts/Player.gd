@@ -12,6 +12,9 @@ var motion = Vector2()
 var soundPlayer
 var jump_sounds
 
+export (int) var clamp_x
+export (int) var clamp_y
+
 func play_jump_sound():
 	soundPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()-1])
 	soundPlayer.play()
@@ -36,6 +39,7 @@ func _init():
 func _ready():
 	soundPlayer = get_node("jumpsound")
 	set_process_input(true)
+	add_to_group("player")
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -68,8 +72,14 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, UP)
   
-	position.x = clamp(position.x, 0, 4096)
-	position.y = clamp(position.y, 0, 2880)
+	# Limit player movement to level
+	position.x = clamp(position.x, 0, clamp_x)
+	position.y = clamp(position.y, 0, clamp_y)
+	
+	# Limit camera movement to level size
+	var camera = get_node("Camera2D")
+	camera.limit_right = clamp_x
+	camera.limit_bottom = clamp_y
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_escape"):

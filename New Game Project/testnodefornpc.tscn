@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Mobs.gd" type="Script" id=1]
+[ext_resource path="res://scenes/NPC/Mob.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 581.325, 74.6469, 0, 0, 0, 0, -274.076, 75.1606 )
+}
+
+[node name="Node" type="Node"]
+
+[node name="Mobs" type="Node" parent="." index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+Mob = ExtResource( 2 )
+
+[node name="StartTimer" type="Timer" parent="Mobs" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[node name="MobPath" type="Path2D" parent="Mobs" index="1"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 379.381, 567.637 )
+curve = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="Mobs/MobPath" index="0"]
+
+position = Vector2( 581.325, 74.6469 )
+rotation = 3.141
+scale = Vector2( 1, 0.986554 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 3.999
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MobTimer" type="Timer" parent="Mobs" index="2"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Mobs/StartTimer" to="Mobs" method="_on_StartTimer_timeout"]
+
+[connection signal="timeout" from="Mobs/MobTimer" to="Mobs" method="_on_MobTimer_timeout"]
+
+

@@ -16,7 +16,7 @@ func _ready():
 	connect("body_exited", self, "_on_DoorOpenable_body_exited")
 
 func _on_DoorOpenable_body_entered(body):
-	if auto_open and active:
+	if auto_open and active and body.is_in_group("player"):
 		disconnect("body_entered", self, "_on_DoorOpenable_body_entered")
 		emit_signal("door_entered", source, dest_lvl, dest_spoint)
 	else:
@@ -28,5 +28,5 @@ func _on_DoorOpenable_body_exited(body):
 
 
 func _on_Player_action_pressed(body):
-	if player_in_teleporter and active:
+	if player_in_teleporter and active and body.is_in_group("player"):
 		emit_signal("door_entered", source, dest_lvl, dest_spoint)

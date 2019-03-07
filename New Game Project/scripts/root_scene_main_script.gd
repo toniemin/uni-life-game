@@ -40,7 +40,12 @@ func set_level(level, spawnpoint):
 	
 	
 	level.add_child(player)
+	var level_bg = level.get_node("Sprite")
+	var level_size = level_bg.texture.get_size()
+	var level_scale = level_bg.global_scale
 	player.set("position", level.find_node(spawnpoint).get("position"))
+	player.set("clamp_x", level_size.x * level_scale.x)
+	player.set("clamp_y", level_size.y * level_scale.y)
 
 func free_level(level):
 	level.remove_child(player)

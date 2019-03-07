@@ -1,0 +1,56 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://NPC.gd" type="Script" id=1]
+[ext_resource path="res://animations/npc_walk/npc_walk0.png" type="Texture" id=2]
+[ext_resource path="res://animations/npc_walk/npc_walk1.png" type="Texture" id=3]
+[ext_resource path="res://animations/npc_walk/npc_walk2.png" type="Texture" id=4]
+[ext_resource path="res://animations/npc_walk/npc_walk3.png" type="Texture" id=5]
+[ext_resource path="res://animations/npc_walk/npc_walk4.png" type="Texture" id=6]
+[ext_resource path="res://animations/npc_walk/npc_walk5.png" type="Texture" id=7]
+[ext_resource path="res://animations/npc_walk/npc_walk6.png" type="Texture" id=8]
+[ext_resource path="res://animations/npc_walk/npc_walk7.png" type="Texture" id=9]
+[ext_resource path="res://animations/npc_walk/npc_walk8.png" type="Texture" id=10]
+[ext_resource path="res://animations/npc_walk/npc_walk9.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28.9541, 99.57 )
+
+[node name="NPC" type="KinematicBody2D"]
+
+position = Vector2( 0, -1.74825 )
+scale = Vector2( 0.38, 0.38 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -1, 7 )
+shape = SubResource( 2 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+

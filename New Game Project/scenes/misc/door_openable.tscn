@@ -7,9 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 11.39, 28.6 )
 
-[node name="DoorOpenable" type="Area2D"]
+[node name="DoorOpenable" type="Area2D" index="0"]
 
-position = Vector2( 1681, 519 )
+position = Vector2( 1.93896, 0.967651 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -19,10 +19,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-dest_lvl = null
+dest_lvl = "Null"
 dest_spoint = null
 active = true
 auto_open = false
