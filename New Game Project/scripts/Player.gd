@@ -39,6 +39,7 @@ func _init():
 func _ready():
 	soundPlayer = get_node("jumpsound")
 	set_process_input(true)
+	add_to_group("player")
 
 func _physics_process(delta):
 	motion.y += GRAVITY

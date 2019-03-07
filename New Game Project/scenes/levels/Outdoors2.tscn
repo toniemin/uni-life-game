@@ -22,31 +22,7 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="SpawnPointPinniA" type="Area2D" parent="Sprite" index="0"]
-
-position = Vector2( -675, 775 )
-scale = Vector2( 2.5, 2.5 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="SpawnPointLinna" type="Area2D" parent="Sprite" index="1"]
-
-position = Vector2( 775, 800 )
-scale = Vector2( 2.5, 2.5 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="Walls" type="StaticBody2D" parent="Sprite" index="2"]
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="0"]
 
 editor/display_folded = true
 input_pickable = false
@@ -69,7 +45,7 @@ position = Vector2( -1907.23, -3.30963 )
 scale = Vector2( 1, 0.789084 )
 shape = SubResource( 1 )
 
-[node name="Ground" type="StaticBody2D" parent="Sprite" index="3"]
+[node name="Ground" type="StaticBody2D" parent="Sprite" index="1"]
 
 editor/display_folded = true
 input_pickable = false
@@ -86,8 +62,75 @@ position = Vector2( -11, 900 )
 scale = Vector2( 1.03292, 1 )
 shape = SubResource( 2 )
 
-[node name="DoorOpenable" parent="." index="1" instance=ExtResource( 2 )]
+[node name="SpawnPointPinniA" type="Area2D" parent="Sprite" index="2"]
 
-position = Vector2( 113.841, 737.519 )
+position = Vector2( -675, 775 )
+scale = Vector2( 2.5, 2.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="SpawnPointLinna" type="Area2D" parent="Sprite" index="3"]
+
+position = Vector2( 775, 800 )
+scale = Vector2( 2.5, 2.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="4"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="PinniA" parent="." index="1" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 372, 731 )
+scale = Vector2( 1.53125, 1.54688 )
+dest_lvl = "PinniA"
+dest_spoint = "PinniA_entry"
+
+[node name="Linna" parent="." index="2" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 1186, 735 )
+scale = Vector2( 1.51563, 1.57813 )
+dest_lvl = "Linna"
+dest_spoint = "Linna_entry"
+
+[node name="Outdoors1" parent="." index="3" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 78, 637 )
+scale = Vector2( 1, 4.64844 )
+dest_lvl = "Outdoors1"
+dest_spoint = "Outdoors2_exit"
+auto_open = true
+
+[node name="Outdoors1_exit" parent="." index="4" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 270, 725 )
+active = false
 
 

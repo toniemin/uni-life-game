@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/DoorAutoActivate.gd" type="Script" id=2]
+
+[node name="DoorAutoActivate" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+active = false
+
+
