@@ -1,5 +1,7 @@
 extends Node
 
+signal scoreChanged
+
 var Player_scene = load("res://scenes/player/Player.tscn")
 
 var levels = {
@@ -15,7 +17,9 @@ var tasks_left = {
 	"MainBuilding": 3,
 	"Linna": 3,
 	"PinniA": 3,
-	"PinniB": 3
+	"PinniB": 3,
+	"Outdoors1": 0,
+	"Outdoors2": 0
 } 
 
 var player
@@ -29,6 +33,7 @@ func _ready():
 	player = Player_scene.instance()
 
 	change_level(null, "Outdoors1", "default")
+	connect("scoreChanged", $"player/HUD/VBoxContainer/HBoxContainer/Background/TaskName", "updateScore")
 
 
 func change_level(source_lvl, dest_lvl_name, spawnpoint):
@@ -65,7 +70,7 @@ func add_tasks(level):
 	var tasksToRemove = 3 - tasks_left[level]
 	var i = 0
 	for task in allTasks:
-		if i < tasksToRemove:
+		if i <= tasksToRemove:
 			task.queue_free()
 			i += 1
 		else:
@@ -74,6 +79,7 @@ func add_tasks(level):
 	
 func completeTask(task, lvl_name, credits):
 	creditsCounter += credits
+	emit_signal("scoreChanged", creditsCounter)
 	tasks_left[lvl_name] -= 1
 	current_lvl.removeChild(task)
 	task.queue_free()
