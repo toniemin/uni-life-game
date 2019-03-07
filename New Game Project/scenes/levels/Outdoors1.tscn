@@ -14,12 +14,12 @@
 [ext_resource path="res://animations/npc_walk/npc_walk8.png" type="Texture" id=12]
 [ext_resource path="res://animations/npc_walk/npc_walk9.png" type="Texture" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2487.54, 10 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -34,7 +34,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 28.9541, 99.57 )
 
-[node name="Outdoors1" type="Node" index="0"]
+[node name="Outdoors1" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -68,33 +68,37 @@ bounce = 0.0
 
 position = Vector2( 41.2689, 899.089 )
 scale = Vector2( 0.789893, 0.993854 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="default" parent="." index="1" groups=[
 "doors",
+"autoopen",
 ] instance=ExtResource( 2 )]
 
 visible = false
-position = Vector2( 746.199, 733.647 )
+position = Vector2( 603, 601 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-dest_lvl = "Outdoors1"
-dest_spoint = "default"
+dest_lvl = "Outdoors2"
+dest_spoint = "Output"
+active = false
 
-[node name="MainBuildingDoor" parent="." index="2" groups=[
+[node name="MainBuilding" parent="." index="2" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 248.128, 732.199 )
+position = Vector2( 308, 719 )
+scale = Vector2( 3.32813, 1.76563 )
 dest_lvl = "MainBuilding"
-dest_spoint = "default"
+dest_spoint = "Outdoors1_exit"
 
-[node name="PinniBDoor" parent="." index="3" groups=[
+[node name="PinniB" parent="." index="3" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 1177.04, 735.497 )
+position = Vector2( 1165, 734 )
+scale = Vector2( 4.67188, 1.60938 )
 dest_lvl = "PinniB"
-dest_spoint = "default"
+dest_spoint = "Outdoors1_exit"
 
 [node name="NPC" type="KinematicBody2D" parent="." index="4"]
 
@@ -112,7 +116,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC" index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" index="1"]
@@ -138,7 +142,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC2" index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2" index="1"]
@@ -147,5 +151,22 @@ position = Vector2( -1, 7 )
 shape = SubResource( 3 )
 one_way_collision = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Outdoors2_exit" parent="." index="6" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 1320, 737 )
+active = false
+
+[node name="Outdoors2" parent="." index="7" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 1439, 739 )
+dest_lvl = "Outdoors2"
+dest_spoint = "Outdoors1_exit"
+auto_open = true
 
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://background images/pinniBinside.png" type="Texture" id=1]
-[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://brownsmalltile.tres" type="TileSet" id=3]
+[ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/NPC/NPC.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -24,7 +24,8 @@ extents = Vector2( 10, 1007.25 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 656, 368 )
+editor/display_folded = true
+position = Vector2( 639.279, 360 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -104,7 +105,30 @@ position = Vector2( 371.428, 828.571 )
 scale = Vector2( 0.855852, 1.46153 )
 shape = SubResource( 1 )
 
-[node name="Walls" type="StaticBody2D" parent="Sprite" index="4"]
+[node name="TileMap" type="TileMap" parent="Sprite" index="4"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65560, 0, 0, 131045, 0, 0, 327705, 0, 0, 327706, 0, 0, 589846, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="5"]
 
 input_pickable = false
 collision_layer = 1
@@ -126,18 +150,29 @@ position = Vector2( -1817.58, -1.00647 )
 scale = Vector2( 1, 1.0125 )
 shape = SubResource( 3 )
 
-[node name="default" parent="." index="1" groups=[
-"doors",
-] instance=ExtResource( 2 )]
+[node name="Walls" type="StaticBody2D" parent="Sprite" index="6"]
 
-position = Vector2( 128, 608 )
-dest_lvl = "Outdoors1"
-dest_spoint = "default"
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Outdoors1_exit" parent="." index="1" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 248, 588 )
+dest_lvl = ""
+dest_spoint = ""
+active = false
 
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = null
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -166,5 +201,33 @@ position = Vector2( 449.187, 620.783 )
 [node name="NPC3" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 729.552, 281.632 )
+
+[node name="Outdoors1" parent="." index="6" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 78, 593 )
+dest_lvl = "Outdoors1"
+dest_spoint = "PinniB"
+auto_open = true
+
+[node name="MainBuilding" parent="." index="7" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 47, 110 )
+scale = Vector2( 1.46875, 1.5625 )
+dest_lvl = "MainBuilding"
+dest_spoint = "PinniB"
+
+[node name="PinniA" parent="." index="8" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 1216, 261 )
+scale = Vector2( 1.34375, 1.45313 )
+dest_lvl = "PinniA"
+dest_spoint = "PinniB"
 
 
