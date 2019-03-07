@@ -6,6 +6,7 @@
 [node name="Master" type="Node"]
 
 script = ExtResource( 1 )
+credits_counter = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="0"]
 

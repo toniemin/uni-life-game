@@ -24,7 +24,6 @@ extents = Vector2( 10, 994.79 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 672, 384 )
 scale = Vector2( 0.37, 0.37 )
 texture = ExtResource( 1 )
@@ -90,8 +89,8 @@ position = Vector2( 1806.09, -25.592 )
 shape = SubResource( 3 )
 
 [node name="Outdoors1" parent="." index="1" groups=[
-"auto-open",
 "doors",
+"auto-open",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 1185, 622 )
@@ -154,15 +153,18 @@ position = Vector2( 1219.44, 135.42 )
 
 position = Vector2( 1045.91, 261.583 )
 scale = Vector2( 0.775694, 0.758608 )
+lvl_name = "MainBuilding"
 
 [node name="Task2" parent="." index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 502.756, 308.774 )
 scale = Vector2( 0.688948, 0.729692 )
+lvl_name = "MainBuilding"
 
 [node name="Task3" parent="." index="10" instance=ExtResource( 4 )]
 
 position = Vector2( 697.996, 95.9525 )
 scale = Vector2( 0.83353, 0.787524 )
+lvl_name = "MainBuilding"
 
 

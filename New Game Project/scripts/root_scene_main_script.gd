@@ -27,7 +27,8 @@ var player
 var current_lvl
 var current_lvl_name
 
-var creditsCounter = 0
+export var credits_counter = 0
+var required_credits = 60
 
 var init = true
 
@@ -93,10 +94,19 @@ func add_tasks(level):
 	
 	
 func completeTask(task, lvl_name, credits):
-	creditsCounter += credits
-	emit_signal("scoreChanged", creditsCounter)
-	tasks_left[current_lvl_name] = tasks_left[current_lvl_name] - 1
+	credits_counter += credits
+	emit_signal("scoreChanged", credits_counter)
+	tasks_left[lvl_name] = tasks_left[lvl_name] - 1
 	task.queue_free()
+	check_credits()
+	
+func check_credits():
+	if (credits_counter >= required_credits):
+		var game_over_screen = load("res://scenes/menus/GameOver.tscn").instance()
+		game_over_screen.set("credits", credits_counter)
+		var tree = get_tree()
+		tree.get_root().add_child(game_over_screen)
+		tree.paused = true
 
 func free_level(level):
 	level.remove_child(player)

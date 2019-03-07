@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/task.gd" type="Script" id=1]
 [ext_resource path="res://misc/pc.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 11.39, 28.6 )
@@ -27,13 +27,14 @@ lvl_name = null
 
 position = Vector2( 0.466716, 0.557669 )
 scale = Vector2( 2.18671, 0.995009 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+position = Vector2( 4.88758e-006, 3.57628e-007 )
 texture = ExtResource( 2 )
 
 

@@ -21,7 +21,7 @@ extents = Vector2( 1377.1, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 967.296 )
 
-[node name="PinniA" type="Node"]
+[node name="PinniA" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -165,15 +165,18 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 39.517, 148.25 )
 scale = Vector2( 0.686404, 0.61642 )
+lvl_name = "PinniA"
 
 [node name="Task2" parent="." index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 40.8774, 470.658 )
 scale = Vector2( 0.686404, 0.61642 )
+lvl_name = "PinniA"
 
 [node name="Task3" parent="." index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 597.27, 267.962 )
 scale = Vector2( 0.686404, 0.61642 )
+lvl_name = "PinniA"
 
 
