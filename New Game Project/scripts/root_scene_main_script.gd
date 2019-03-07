@@ -85,8 +85,7 @@ func add_tasks(level):
 		tasksToRemove = 3 - tasks_left[level]
 	var i = 0
 	for task in allTasks:
-		if i <= tasksToRemove:
-			print('removing task')
+		if i < tasksToRemove:
 			task.queue_free()
 			i += 1
 		else:
@@ -96,7 +95,7 @@ func add_tasks(level):
 func completeTask(task, lvl_name, credits):
 	creditsCounter += credits
 	emit_signal("scoreChanged", creditsCounter)
-	#tasks_left[lvl_name] = tasks_left[lvl_name] - 1
+	tasks_left[lvl_name] = tasks_left[lvl_name] - 1
 	task.queue_free()
 
 func free_level(level):
