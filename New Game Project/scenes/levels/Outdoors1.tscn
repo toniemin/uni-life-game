@@ -1,21 +1,38 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://background images/outdoor1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Mobs.gd" type="Script" id=3]
-[ext_resource path="res://scenes/NPC/Mob.tscn" type="PackedScene" id=4]
+[ext_resource path="res://NPC.gd" type="Script" id=3]
+[ext_resource path="res://animations/npc_walk/npc_walk0.png" type="Texture" id=4]
+[ext_resource path="res://animations/npc_walk/npc_walk1.png" type="Texture" id=5]
+[ext_resource path="res://animations/npc_walk/npc_walk2.png" type="Texture" id=6]
+[ext_resource path="res://animations/npc_walk/npc_walk3.png" type="Texture" id=7]
+[ext_resource path="res://animations/npc_walk/npc_walk4.png" type="Texture" id=8]
+[ext_resource path="res://animations/npc_walk/npc_walk5.png" type="Texture" id=9]
+[ext_resource path="res://animations/npc_walk/npc_walk6.png" type="Texture" id=10]
+[ext_resource path="res://animations/npc_walk/npc_walk7.png" type="Texture" id=11]
+[ext_resource path="res://animations/npc_walk/npc_walk8.png" type="Texture" id=12]
+[ext_resource path="res://animations/npc_walk/npc_walk9.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2487.54, 10 )
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="SpriteFrames" id=1]
 
-bake_interval = 5.0
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 61.5165, 0, 0, 0, 0, 0, 258.369, -2.0506, 0, 0, 0, 0, 143.912, 1.60315, 0, 0, 0, 0, 28.0365, -5.21313 )
-}
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28.9541, 99.57 )
 
 [node name="Outdoors1" type="Node" index="0"]
 
@@ -79,49 +96,56 @@ position = Vector2( 1177.04, 735.497 )
 dest_lvl = "PinniB"
 dest_spoint = "default"
 
-[node name="Mobs" type="Node" parent="." index="4"]
+[node name="NPC" type="KinematicBody2D" parent="." index="4"]
 
+position = Vector2( 36.2364, 742.789 )
+scale = Vector2( 0.4, 0.4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+collision/safe_margin = 0.08
 script = ExtResource( 3 )
-_sections_unfolded = [ "Pause" ]
-Mob = ExtResource( 4 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="StartTimer" type="Timer" parent="Mobs" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC" index="0"]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
+frames = SubResource( 1 )
+animation = "walk"
 
-[node name="MobPath" type="Path2D" parent="Mobs" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" index="1"]
 
-self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-position = Vector2( 481.308, 600 )
-curve = SubResource( 3 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+position = Vector2( -1, 7 )
+shape = SubResource( 3 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="Mobs/MobPath" index="0"]
+[node name="NPC2" type="KinematicBody2D" parent="." index="5"]
 
-position = Vector2( 202.367, 33.5896 )
-rotation = 0.00122249
-scale = Vector2( 1, 0.986554 )
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 888.287, 741.561 )
+scale = Vector2( 0.4, 0.4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="MobTimer" type="Timer" parent="Mobs" index="2"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC2" index="0"]
 
-process_mode = 1
-wait_time = 4.0
-one_shot = false
-autostart = true
+frames = SubResource( 1 )
+animation = "walk"
 
-[connection signal="timeout" from="Mobs/StartTimer" to="Mobs" method="_on_StartTimer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2" index="1"]
 
-[connection signal="timeout" from="Mobs/MobTimer" to="Mobs" method="_on_MobTimer_timeout"]
+position = Vector2( -1, 7 )
+shape = SubResource( 3 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 

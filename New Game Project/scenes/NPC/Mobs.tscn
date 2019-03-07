@@ -7,7 +7,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -61.7968, 477.673, 0, 0, 0, 0, 344.058, 477.673 )
+"points": PoolVector2Array( 0, 0, 0, 0, -261.082, 68.7544, 0, 0, 0, 0, 798.728, 70.9128 )
 }
 
 [node name="Mobs" type="Node"]
@@ -26,13 +26,14 @@ autostart = false
 [node name="MobPath" type="Path2D" parent="." index="1"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 397.159, 820.219 )
 curve = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" index="0"]
 
-position = Vector2( -61.7968, 477.673 )
-rotation = 7.78829e-006
+position = Vector2( -261.082, 68.7544 )
+rotation = 0.0020385
 scale = Vector2( 1, 0.986554 )
 offset = 0.0
 h_offset = 0.0
@@ -42,6 +43,9 @@ cubic_interp = true
 loop = true
 lookahead = 3.999
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MobTimer" type="Timer" parent="." index="2"]
 
