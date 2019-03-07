@@ -53,7 +53,7 @@ loop = false
 loop_offset = 0.0
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 190, 1870 )
 scale = Vector2( 0.75, 0.75 )

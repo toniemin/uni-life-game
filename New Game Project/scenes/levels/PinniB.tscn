@@ -21,7 +21,7 @@ extents = Vector2( 133.971, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 1007.25 )
 
-[node name="PinniB" type="Node"]
+[node name="PinniB" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -214,17 +214,17 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Task" parent="." index="9" instance=ExtResource( 5 )]
 
-position = Vector2( 469.189, 92.8912 )
-scale = Vector2( 0.676869, 0.573065 )
+position = Vector2( 473, 91 )
+scale = Vector2( 0.765625, 0.625 )
 
 [node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
 
-position = Vector2( 772.44, 599.947 )
-scale = Vector2( 0.676869, 0.573065 )
+position = Vector2( 207, 291 )
+scale = Vector2( 0.734375, 0.765625 )
 
 [node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
 
-position = Vector2( 1003.25, 408.42 )
-scale = Vector2( 0.676869, 0.573065 )
+position = Vector2( 688, 629 )
+scale = Vector2( 0.734375, 0.75 )
 
 

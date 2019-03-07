@@ -95,7 +95,7 @@ func add_tasks(level):
 func completeTask(task, lvl_name, credits):
 	creditsCounter += credits
 	emit_signal("scoreChanged", creditsCounter)
-	tasks_left[lvl_name] = tasks_left[lvl_name] - 1
+	tasks_left[current_lvl_name] = tasks_left[current_lvl_name] - 1
 	task.queue_free()
 
 func free_level(level):
