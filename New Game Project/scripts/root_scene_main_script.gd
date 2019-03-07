@@ -1,5 +1,7 @@
 extends Node
 
+signal scoreChanged
+
 var Player_scene = load("res://scenes/player/Player.tscn")
 
 var levels = {
@@ -15,7 +17,9 @@ var tasks_left = {
 	"MainBuilding": 3,
 	"Linna": 3,
 	"PinniA": 3,
-	"PinniB": 3
+	"PinniB": 3,
+	"Outdoors1": 0,
+	"Outdoors2": 0
 } 
 
 var player
@@ -26,9 +30,10 @@ var current_lvl_name
 var credits_counter = 0
 var required_credits = 60
 
+var init = true
+
 func _ready():
 	player = Player_scene.instance()
-
 	change_level(null, "Outdoors1", "default")
 
 
@@ -53,6 +58,13 @@ func set_level(level, spawnpoint):
 	add_tasks(current_lvl_name)
 	
 	level.add_child(player)
+	
+	if init:
+		var timer = get_tree().get_nodes_in_group("timer")[0]
+		connect("scoreChanged", timer, "updateScore")
+		
+		init = false
+	
 	var level_bg = level.get_node("Sprite")
 	var level_size = level_bg.texture.get_size()
 	var level_scale = level_bg.global_scale
@@ -61,8 +73,14 @@ func set_level(level, spawnpoint):
 	player.set("clamp_y", level_size.y * level_scale.y)
 
 func add_tasks(level):
-	var allTasks = get_tree().get_nodes_in_group("task")
+	print('adding tasks')
+	var allTasks = get_tree().get_nodes_in_group("tasks")
+	print('tasks: ', allTasks)
 	get_tree().call_group("tasks", "connect", "task_completed", self, "completeTask")
+	
+	for task in allTasks:
+		player.connect("action_pressed", task, "_on_Player_action_pressed")
+	
 	var tasksToRemove = 0
 	if (tasks_left.has(level)):
 		tasksToRemove = 3 - tasks_left[level]
@@ -76,9 +94,9 @@ func add_tasks(level):
 	
 	
 func completeTask(task, lvl_name, credits):
-	credits_counter += credits
-	tasks_left[lvl_name] -= 1
-	current_lvl.removeChild(task)
+	creditsCounter += credits
+	emit_signal("scoreChanged", creditsCounter)
+	tasks_left[lvl_name] = tasks_left[lvl_name] - 1
 	task.queue_free()
 	check_credits()
 	

@@ -89,8 +89,8 @@ position = Vector2( 1806.09, -25.592 )
 shape = SubResource( 3 )
 
 [node name="Outdoors1" parent="." index="1" groups=[
-"doors",
 "auto-open",
+"doors",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 1185, 622 )
