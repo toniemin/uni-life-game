@@ -2,7 +2,8 @@ extends Area2D
 
 signal task_completed
 
-export (int) var credits
+export (int) var credits = 5
+export (String) var lvl_name
 
 var completed = false
 
@@ -22,6 +23,6 @@ func _on_DoorOpenable_body_exited(body):
 
 
 func _on_Player_action_pressed(body):
-	if player_in_task and body.is_in_group("player"):
+	if player_in_task and body.is_in_group("player") and not completed:
 		completed = true
-		emit_signal("task_completed", credits)
+		emit_signal("task_completed", self, lvl_name, credits)
