@@ -60,22 +60,45 @@ position = Vector2( -11, 900 )
 scale = Vector2( 1.03292, 1 )
 shape = SubResource( 2 )
 
-[node name="Outdoors1_entry" parent="." index="1" groups=[
+[node name="PinniA" parent="." index="1" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 249, 402 )
-dest_lvl = "Outdoors1"
-dest_spoint = "Outdoors2"
-active = false
+position = Vector2( 277, 587.5 )
+scale = Vector2( 1.53125, 1.54688 )
+dest_lvl = "PinniA"
+dest_spoint = "PinniA_entry"
+active = true
 auto_open = false
 
-[node name="Outdoors1" parent="." index="2" groups=[
+[node name="Linna" parent="." index="2" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 563, 390 )
-dest_lvl = "Null"
+position = Vector2( 1089.5, 593.5 )
+scale = Vector2( 1.51563, 1.57813 )
+dest_lvl = "Linna"
+dest_spoint = "Linna_entry"
+active = true
+auto_open = false
+
+[node name="Outdoors1" parent="." index="3" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 16, 493.75 )
+scale = Vector2( 1, 4.64844 )
+dest_lvl = "Outdoors1"
+dest_spoint = "Outdoors2_exit"
+active = true
+auto_open = true
+
+[node name="Outdoors1_exit" parent="." index="4" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 136, 588 )
 active = false
 auto_open = false
 

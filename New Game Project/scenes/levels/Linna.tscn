@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://background images/Linna.png" type="Texture" id=1]
 [ext_resource path="res://SnowyBlockTile.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -191,5 +192,22 @@ shape = SubResource( 6 )
 position = Vector2( -1814, -0.999598 )
 scale = Vector2( 1, 0.647739 )
 shape = SubResource( 6 )
+
+[node name="Linna" parent="." index="1" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 65, 622 )
+dest_lvl = "Outdoors2"
+dest_spoint = "Linna"
+auto_open = true
+
+[node name="Linna_entry" parent="." index="2" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 227, 622 )
+active = false
 
 

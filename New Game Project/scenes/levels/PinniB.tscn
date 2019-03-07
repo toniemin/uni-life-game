@@ -19,10 +19,11 @@ extents = Vector2( 133.971, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 1007.25 )
 
-[node name="PinniB" type="Node"]
+[node name="PinniB" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 639.279, 360 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 1 )
@@ -121,7 +122,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -655338, 0, 0, -327657, 0, 0, -65560, 0, 0, 131045, 0, 0, 327705, 0, 0, 327706, 0, 0, 589846, 0, 0 )
+tile_data = PoolIntArray( -65560, 0, 0, 131045, 0, 0, 327705, 0, 0, 327706, 0, 0, 589846, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -148,14 +149,41 @@ position = Vector2( -1817.58, -1.00647 )
 scale = Vector2( 1, 1.0125 )
 shape = SubResource( 3 )
 
-[node name="default" parent="." index="1" groups=[
+[node name="Outdoors1_exit" parent="." index="1" groups=[
 "doors",
 ] instance=ExtResource( 3 )]
 
-position = Vector2( 131, 557 )
+position = Vector2( 215, 594 )
+dest_lvl = ""
+dest_spoint = ""
+active = false
+
+[node name="Outdoors1" parent="." index="2" groups=[
+"auto-open",
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 63, 595 )
 dest_lvl = "Outdoors1"
-dest_spoint = "default"
-active = true
-auto_open = false
+dest_spoint = "PinniB"
+auto_open = true
+
+[node name="MainBuilding" parent="." index="3" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 35, 110 )
+scale = Vector2( 1.46875, 1.5625 )
+dest_lvl = "MainBuilding"
+dest_spoint = "PinniB"
+
+[node name="PinniA" parent="." index="4" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 1250, 262.5 )
+scale = Vector2( 1.34375, 1.45313 )
+dest_lvl = "PinniA"
+dest_spoint = "PinniB"
 
 

@@ -31,12 +31,14 @@ func change_level(source_lvl, dest_lvl_name, spawnpoint):
 
 func set_level(level, spawnpoint):
 	add_child(level)
+	
 	get_tree().call_group("doors", "connect", "door_entered", self, "change_level")
 
 	for door in get_tree().get_nodes_in_group("doors"):
 		if not door.is_in_group("auto-open"):
 			player.connect("action_pressed", door, "_on_Player_action_pressed")
-
+	
+	
 	level.add_child(player)
 	player.set("position", level.find_node(spawnpoint).get("position"))
 

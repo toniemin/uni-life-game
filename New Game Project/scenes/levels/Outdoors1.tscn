@@ -13,7 +13,7 @@ extents = Vector2( 75.7071, 1102.99 )
 custom_solver_bias = 0.0
 extents = Vector2( 2487.54, 10 )
 
-[node name="Outdoors1" type="Node" index="0"]
+[node name="Outdoors1" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -60,53 +60,48 @@ scale = Vector2( 0.789893, 0.993854 )
 shape = SubResource( 2 )
 
 [node name="default" parent="." index="1" groups=[
-"doors",
 "autoopen",
+"doors",
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 603, 601 )
 dest_lvl = "Outdoors2"
 dest_spoint = "Output"
-active = true
-auto_open = false
+active = false
 
-[node name="MainBuildingDoor" parent="." index="2" groups=[
+[node name="MainBuilding" parent="." index="2" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 182, 602 )
+position = Vector2( 163.5, 582.5 )
+scale = Vector2( 3.32813, 1.76563 )
 dest_lvl = "MainBuilding"
-dest_spoint = "default"
-active = true
-auto_open = false
+dest_spoint = "Outdoors1_exit"
 
-[node name="PinniBDoor" parent="." index="3" groups=[
+[node name="PinniB" parent="." index="3" groups=[
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 900, 599 )
+position = Vector2( 1019.5, 592.5 )
+scale = Vector2( 4.67188, 1.60938 )
 dest_lvl = "PinniB"
-dest_spoint = "default"
-active = true
-auto_open = false
+dest_spoint = "Outdoors1_exit"
 
-[node name="Outdoors2_entry" parent="." index="4" groups=[
+[node name="Outdoors2_exit" parent="." index="4" groups=[
+"doors",
+] instance=ExtResource( 2 )]
+
+position = Vector2( 1203, 590 )
+active = false
+
+[node name="Outdoors2" parent="." index="5" groups=[
 "auto-open",
 "doors",
 ] instance=ExtResource( 2 )]
 
-position = Vector2( 1206, 597 )
+position = Vector2( 1308, 591 )
 dest_lvl = "Outdoors2"
-dest_spoint = "Outdoors1_entry"
-active = true
+dest_spoint = "Outdoors1_exit"
 auto_open = true
-
-[node name="Outdoors2" parent="." index="5" groups=[
-"doors",
-] instance=ExtResource( 2 )]
-
-position = Vector2( 1079, 584 )
-active = false
-auto_open = false
 
 

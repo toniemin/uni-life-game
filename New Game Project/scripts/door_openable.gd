@@ -16,8 +16,8 @@ func _ready():
 	connect("body_exited", self, "_on_DoorOpenable_body_exited")
 
 func _on_DoorOpenable_body_entered(body):
-	print("active: ", active, " openable: ", auto_open)
 	if auto_open and active:
+		disconnect("body_entered", self, "_on_DoorOpenable_body_entered")
 		emit_signal("door_entered", source, dest_lvl, dest_spoint)
 	else:
 		player_in_teleporter = true

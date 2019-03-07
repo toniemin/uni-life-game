@@ -113,12 +113,30 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -393242, 0, 0, 26, 0, 0, 27, 0, 0, 589798, 0, 0, 589799, 0, 0 )
 
-[node name="default" parent="." index="1" groups=[
+[node name="Outdoors1" parent="." index="1" groups=[
+"auto-open",
 "doors",
 ] instance=ExtResource( 3 )]
 
-position = Vector2( 1147, 564 )
+position = Vector2( 1203, 608 )
 dest_lvl = "Outdoors1"
-dest_spoint = "default"
+dest_spoint = "MainBuilding"
+auto_open = true
+
+[node name="Outdoors1_exit" parent="." index="2" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 1088, 608 )
+active = false
+
+[node name="PinniB" parent="." index="3" groups=[
+"doors",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 1253, 115 )
+scale = Vector2( 1.46875, 1.5625 )
+dest_lvl = "PinniB"
+dest_spoint = "MainBuilding"
 
 
