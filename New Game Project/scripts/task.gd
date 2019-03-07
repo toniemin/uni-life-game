@@ -1,5 +1,5 @@
 extends Area2D
-
+#task.gd
 signal task_completed
 
 export (int) var credits = 5

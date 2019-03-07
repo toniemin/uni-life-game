@@ -62,7 +62,9 @@ func set_level(level, spawnpoint):
 func add_tasks(level):
 	var allTasks = get_tree().get_nodes_in_group("task")
 	get_tree().call_group("tasks", "connect", "task_completed", self, "completeTask")
-	var tasksToRemove = 3 - tasks_left[level]
+	var tasksToRemove = 0
+	if (tasks_left.has(level)):
+		tasksToRemove = 3 - tasks_left[level]
 	var i = 0
 	for task in allTasks:
 		if i < tasksToRemove:

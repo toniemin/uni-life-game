@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://background images/pinniBinside.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/NPC/NPC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://brownsmalltile.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/misc/task.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -210,5 +211,20 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 1703936, 0, 0, 1769472, 0, 0, 1835008, 0, 0, 2424910, 0, 0, 2424911, 0, 0, 2424912, 0, 0, 2490446, 0, 0, 2490447, 0, 0, 2490448, 0, 0, 2555982, 0, 0, 2555983, 0, 0, 2555984, 0, 0, 2621518, 0, 0, 2621519, 0, 0, 2621520, 0, 0 )
 _sections_unfolded = [ "Cell" ]
+
+[node name="Task" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 469.189, 92.8912 )
+scale = Vector2( 0.676869, 0.573065 )
+
+[node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 772.44, 599.947 )
+scale = Vector2( 0.676869, 0.573065 )
+
+[node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 1003.25, 408.42 )
+scale = Vector2( 0.676869, 0.573065 )
 
 

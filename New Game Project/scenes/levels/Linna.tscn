@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://background images/Linna.png" type="Texture" id=1]
 [ext_resource path="res://scenes/misc/door_openable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://brownsmalltile.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/NPC/NPC.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/misc/task.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,6 +40,7 @@ extents = Vector2( 10, 1586.48 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 637.45, 360 )
 scale = Vector2( 0.351406, 0.35 )
 texture = ExtResource( 1 )
@@ -255,5 +257,20 @@ position = Vector2( 548.573, 394.171 )
 modulate = Color( 0.933594, 0.914647, 0.448563, 1 )
 position = Vector2( 808.853, 378.211 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="Task" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 860.076, 605.23 )
+scale = Vector2( 0.694334, 0.582903 )
+
+[node name="Task2" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 1088.62, 144.064 )
+scale = Vector2( 0.694334, 0.582903 )
+
+[node name="Task3" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 660.101, 150.865 )
+scale = Vector2( 0.694334, 0.582903 )
 
 
