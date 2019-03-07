@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 11.39, 28.6 )
 
-[node name="Task" type="Area2D"]
+[node name="Task" type="Area2D" index="0"]
 
 position = Vector2( 1.93896, 0.967651 )
 input_pickable = true
@@ -34,6 +34,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+position = Vector2( 4.88758e-006, 3.57628e-007 )
 texture = ExtResource( 2 )
 
 
