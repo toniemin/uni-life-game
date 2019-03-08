@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/root_scene_main_script.gd" type="Script" id=1]
 [ext_resource path="res://Sounds and music/music/Mercury.wav" type="AudioStream" id=2]
 
-[node name="Master" type="Node"]
+[node name="Master" type="Node" index="0"]
 
 script = ExtResource( 1 )
 credits_counter = 0

@@ -22,19 +22,10 @@ func play_jump_sound():
 
 func _init():
 	jump_sounds = []
-	var dir = Directory.new()
-	dir.open("res://Sounds and music/jump/")
-	dir.list_dir_begin()
-	
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with(".") and not file.ends_with(".import"):
-			var audioFile = load(dir.get_current_dir() + '/'+ file)
-			jump_sounds.append(audioFile)
-	
-	dir.list_dir_end()
+	jump_sounds.append(load("res://Sounds and music/jump/UniLife_SFX_Ingame_jump1.wav"))
+	jump_sounds.append(load("res://Sounds and music/jump/UniLife_SFX_Ingame_jump2.wav"))
+	jump_sounds.append(load("res://Sounds and music/jump/UniLife_SFX_Ingame_jump3.wav"))
+	jump_sounds.append(load("res://Sounds and music/jump/UniLife_SFX_Ingame_jump4.wav"))
 
 func _ready():
 	soundPlayer = get_node("jumpsound")
